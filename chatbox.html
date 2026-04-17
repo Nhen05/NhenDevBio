@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATBOX FREE FIRE - NHEN DEVELOPER</title>
+
+    <link rel="icon" type="image/jpeg"
+        href="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/chatbox.css">
+
+    <style>
+        :root {
+            --primary-green: #00ff9d;
+            --dark-bg: #0a0a0a;
+            --panel-bg: #111111;
+            --chat-bg: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ==================== HEADER ==================== */
+        .bio-header {
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-green);
+            box-shadow: 0 0 35px rgba(0, 255, 157, 0.5);
+            margin-bottom: 15px;
+            transition: all 0.4s ease;
+            object-fit: cover;
+        }
+
+        .avatar:hover {
+            transform: scale(1.08);
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+            background: linear-gradient(90deg, #ffffff, var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .visitor-count {
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        /* ==================== BACK BUTTON ==================== */
+        .back-button-container {
+            max-width: 520px;
+            margin: 0 auto 25px;
+            padding: 0 15px;
+        }
+
+        .btn-back {
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s ease;
+            width: 100%;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+        }
+
+        .btn-back:hover {
+            background: var(--primary-green);
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
+        }
+
+        /* ==================== CHATBOX DESIGN (MÀU XANH LÁ) ==================== */
+        .chatbox-wrapper {
+            max-width: 540px;
+            margin: 0 auto 50px;
+            padding: 0 15px;
+        }
+
+        #ai-sensitivity-chat {
+            background: var(--panel-bg);
+            border: 2px solid rgba(0, 255, 157, 0.3);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #00cc7a, var(--primary-green));
+            color: #000;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-transform: uppercase;
+        }
+
+        #ai-messages {
+            height: 500px;
+            /* Độ cao lớn cho dễ nhìn */
+            overflow-y: auto;
+            padding: 25px;
+            background: var(--chat-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* Tin nhắn bot & user */
+        .msg {
+            max-width: 85%;
+            padding: 14px 18px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .bot-msg {
+            align-self: flex-start;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-msg {
+            align-self: flex-end;
+            background: var(--primary-green);
+            color: #000;
+            font-weight: 600;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Khu vực nhập liệu */
+        .chat-input-area {
+            padding: 20px;
+            background: var(--panel-bg);
+            border-top: 1px solid rgba(0, 255, 157, 0.2);
+            display: flex;
+            gap: 12px;
+        }
+
+        #ai-user-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid rgba(0, 255, 157, 0.2);
+            border-radius: 30px;
+            background: #1a1a1a;
+            color: white;
+            outline: none;
+            font-size: 1.05rem;
+            transition: 0.3s;
+        }
+
+        #ai-user-input:focus {
+            border-color: var(--primary-green);
+        }
+
+        #ai-send-btn {
+            width: 55px;
+            height: 55px;
+            background: var(--primary-green);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        #ai-send-btn:hover {
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 0 20px var(--primary-green);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            text-align: center;
+            padding: 40px 15px;
+            color: #666;
+            border-top: 1px solid rgba(0, 255, 157, 0.1);
+        }
+
+        .made-by {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        /* Custom Scrollbar */
+        #ai-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #ai-messages::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 10px;
+        }
+
+        /* Animations */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0);
+            }
+
+            25% {
+                transform: rotate(5deg);
+            }
+
+            75% {
+                transform: rotate(-5deg);
+            }
+        }
+
+        .shake-once {
+            animation: shake 0.6s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bio-header">
+        <img src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+            alt="NHEN DEVELOPER" class="avatar" id="avatar">
+        <h1 class="name">NHEN DEVELOPER</h1>
+        <div class="visitor-count" id="visitorCount">Lượt truy cập: 1,245+</div>
+    </div>
+
+    <div class="back-button-container">
+        <a href="index.html" class="btn-back">
+            <i class="fas fa-arrow-left"></i> QUAY LẠI TRANG CHỦ
+        </a>
+    </div>
+
+    <div class="chatbox-wrapper">
+        <div id="ai-sensitivity-chat">
+
+            <div class="chat-header">
+                <i class="fas fa-crosshairs"></i>
+                AI SENSITIVITY ASSISTANT
+            </div>
+
+            <div id="ai-messages">
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="ai-user-input" placeholder="Nhập tên máy (vd: iPhone 13)...">
+                <button id="ai-send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Được lập trình bởi <span class="made-by">NHEN DEVELOPER</span></p>
+        <p style="margin-top: 8px;">© 2026 • FF TRICKS SYSTEM</p>
+    </div>
+    <script>
+        // === CẤU HÌNH GROQ AI ===
+        const GROQ_API_KEY = "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";
+
+        const aiMessages = document.getElementById('ai-messages');
+        const aiInput = document.getElementById('ai-user-input');
+        const aiSendBtn = document.getElementById('ai-send-btn');
+
+        let conversationHistory = [];
+        let lastSendTime = 0;
+
+        // SYSTEM PROMPT: CẬP NHẬT LOGIC DPI & NÚT BẮN THEO THIẾT BỊ
+       const systemPrompt = `Bạn là PRO PLAYER Free Fire (8 năm kinh nghiệm), chuyên tối ưu độ nhạy headshot.
+
+⚠️ QUY TẮC:
+1. Chỉ trả THÔNG SỐ, KHÔNG GIẢI THÍCH.
+2. Luôn trả ĐỦ:
+   DPI, General, Red Dot, 2x, 4x, AWM, Free Look, Nút bắn
+3. Ngoài Free Fire →
+   "⚠️ Vui lòng chỉ hỏi về Free Fire."
+4. Spam →
+   "🚫 Hệ thống bận - Vui lòng không spam"
+
+🚫 KHÔNG HỖ TRỢ (AUTO CHẶN):
+- trick, mẹo, cách chơi, tại sao, fix lỗi, hướng dẫn
+→ "📩 Liên hệ Nhen Developer để được hỗ trợ. Quay lại trang trước."
+
+📱 HỎI VỀ DPI / PIXEL / SHIZUKU / APP / FILES / AIMLOCK / HACK / REGEDIT:
+- "dpi", "pixel", "đổi res", "shizuku", "setedit", "app dpi","cách cài","hướng dẫn"
+→ "📩 Liên hệ Nhen Developer để được hỗ trợ. Bấm nút quay lại trang trước."
+
+🎯 LOGIC THIẾT BỊ:
+- iPhone:
+  DPI: 120 | General: 90–140 | Nút: 45–55
+- Android yếu:
+  DPI: 700–900 | General: 160–200 | Nút: 35–45
+- Android trung:
+  DPI: 600-700 | General: 120–150 | Nút: 40–50
+- Android mạnh:
+  DPI: 500-600 | General: 90–130 | Nút: 45–55
+
+⚙️ TÌNH HUỐNG THỰC CHIẾN:
+- rung tâm → General -5~15
+- quá đầu → Red Dot, 2x -5~10
+- thiếu tâm → Red Dot, 2x +5~10
+- kéo chậm → General +5~15
+- không lên đầu → Red Dot +10
+- kéo quá nhanh → General -5~10
+- tâm giật → Free Look -5
+- lag → DPI +50~100 | Scope -5
+- tâm nặng → General +10
+- tâm nhẹ → General -10
+- bắn xa hụt → 4x +5~10
+- AWM lệch → AWM -5
+- spray rung → Red Dot -5
+- one tap hụt → Red Dot +10
+- lia chậm → Free Look +5~10
+- lia nhanh → Free Look -5~10
+
+🎯 RANDOM:
+- Luôn random trong khoảng.
+
+📱 OPTION 2 (PIXEL):
+- Nếu người dùng hỏi "pixel" / "res":
+  - Nếu là iPhone →
+    "📱 iPhone không cần chỉnh DPI/Pixel."
+  - Nếu là Android →
+    "Trả về với nội dung DPI PIXEL:là độ phân giản của điện thoại đó tính toán sẵn chỉ trả về độ phân giải mới cho họ chỉnh
+    +nếu máy yếu thì tăng 30% 
+    +nếu máy trung bình thì tăng 25%
+    +nêu mạnh thì tăng 20%
+    ."
+    trả về cả kích thước nút bắn theo như bên dưới:
+    "Nút bắn :+máy yếu thì 35-45
+   + máy trung bình 45-50 +
+    máy mạnh thì 50-55"
+
+📌 FORMAT:
+- 🎯 DPI: xxx  
+- 🎯 General: xxx  
+- 🎯 Red Dot: xxx  
+- 🎯 2x Scope: xxx  
+- 🎯 4x Scope: xxx  
+- 🎯 AWM Scope: xxx  
+- 🎯 Free Look: xxx  
+- 🔘 Nút bắn: xx  
+
+⚠️ LUÔN ĐỦ DÒNG.
+⚠️ KHÔNG THÊM TEXT.`;
+
+        function addMessage(text, isBot = true, isOption = false) {
+            const div = document.createElement('div');
+            div.className = `msg ${isBot ? 'bot-msg' : 'user-msg'}`;
+            div.innerHTML = text.replace(/\n/g, '<br>');
+            if (isOption) {
+                div.style.background = "none"; div.style.boxShadow = "none"; div.style.border = "none";
+            }
+            aiMessages.appendChild(div);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+        }
+
+        function showOptions() {
+            const optionHTML = `
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                <button onclick="selectOption('Option 1: Độ nhạy chuẩn & DPI')" style="background: #1a1a1a; color: #00ff9d; border: 2px solid #00ff9d; padding: 10px; border-radius: 15px; font-weight: bold; cursor: pointer;">1️⃣ Độ nhạy chuẩn & DPI</button>
+                <button onclick="selectOption('Option 2: DPI Pixels & Độ nhạy nút bắn')" style="background: #1a1a1a; color: #00ff9d; border: 2px solid #00ff9d; padding: 10px; border-radius: 15px; font-weight: bold; cursor: pointer;">2️⃣ DPI Pixels & Độ nhạy nút bắn</button>
+            </div>`;
+            addMessage(optionHTML, true, true);
+        }
+
+        function selectOption(opt) {
+            addMessage(opt, false);
+            callAI(`Tôi chọn ${opt}. Hãy hỏi tên máy.`);
+        }
+
+        async function callAI(userMsg) {
+            const now = Date.now();
+            if (now - lastSendTime < 2000) {
+                addMessage("🚫 Hệ thống bận - Vui lòng không spam", true);
+                return;
+            }
+            lastSendTime = now;
+
+            conversationHistory.push({ role: "user", content: userMsg });
+
+            try {
+                const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${GROQ_API_KEY}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        model: "llama-3.3-70b-versatile",
+                        messages: [{ role: "system", content: systemPrompt }, ...conversationHistory],
+                        temperature: 0.2 // Thấp hơn để đảm bảo độ chính xác của thông số
+                    })
+                });
+
+                const data = await response.json();
+                const reply = data.choices?.[0]?.message?.content || "Lỗi kết nối!";
+                conversationHistory.push({ role: "assistant", content: reply });
+                addMessage(reply, true);
+            } catch (error) {
+                addMessage("❌ Lỗi API hoặc kết nối mạng.", true);
+            }
+        }
+
+        function handleSend() {
+            const val = aiInput.value.trim();
+            if (!val) return;
+            addMessage(val, false);
+            aiInput.value = '';
+            if (val.toLowerCase() === '/start') {
+                conversationHistory = [];
+                showOptions();
+                return;
+            }
+            callAI(val);
+        }
+
+        aiSendBtn.onclick = handleSend;
+        aiInput.onkeypress = (e) => { if (e.key === 'Enter') handleSend(); };
+
+        window.onload = () => {
+            addMessage("👋 Chào bạn! Chọn chế độ thiết lập:");
+            showOptions();
+        };
+    </script>
+</body>
+
+</html>
