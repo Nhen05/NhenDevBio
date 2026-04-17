@@ -7,151 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="icon" type="image/jpeg" href="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo">
-  <style>
-    :root {
-      --primary-green: #00ff9d;
-      --dark-bg: #0a0a0a;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--dark-bg);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
-    }
-
-    .bio-header {
-      padding: 60px 20px 30px;
-      text-align: center;
-      background: var(--dark-bg);
-    }
-
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid var(--primary-green);
-      box-shadow: 0 0 35px rgba(0, 255, 157, 0.5);
-      margin-bottom: 18px;
-      transition: all 0.4s ease;
-    }
-
-    .avatar:hover { transform: scale(1.08); }
-
-    .name {
-      font-size: 2.1rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-      background: linear-gradient(90deg, #ffffff, var(--primary-green));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .visitor-count {
-      font-size: 1.05rem;
-      color: var(--primary-green);
-      margin-top: 8px;
-      font-weight: 600;
-      opacity: 0.95;
-    }
-
-    .bio-header p {
-      font-size: 1.05rem;
-      opacity: 0.85;
-      margin-top: 4px;
-    }
-
-    .cards-section {
-      padding: 10px 15px 80px;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .card-link {
-      background: rgba(255,255,255,0.06);
-      border: 2px solid rgba(0, 255, 157, 0.25);
-      border-radius: 16px;
-      padding: 16px 18px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-decoration: none;
-      color: white;
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-link::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -100%;
-      width: 50%;
-      height: 200%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
-      transition: 0.7s;
-    }
-
-    .card-link:hover::before { left: 150%; }
-
-    .card-link:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary-green);
-      background: rgba(0, 255, 157, 0.12);
-      box-shadow: 0 12px 25px rgba(0, 255, 157, 0.3);
-    }
-
-    .icon-wrapper {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
-      border-radius: 12px;
-      background: rgba(0, 255, 157, 0.15);
-      color: var(--primary-green);
-      transition: all 0.3s ease;
-    }
-
-    .card-link:hover .icon-wrapper {
-      transform: scale(1.12) rotate(10deg);
-      background: var(--primary-green);
-      color: #000;
-    }
-
-    .card-text { font-size: 1.08rem; font-weight: 600; flex: 1; }
-
-    .arrow {
-      font-size: 1.35rem;
-      color: var(--primary-green);
-      transition: transform 0.3s ease;
-    }
-
-    .card-link:hover .arrow { transform: translateX(10px); }
-
-    .footer {
-      text-align: center;
-      padding: 25px 15px 35px;
-      background: rgba(0,0,0,0.7);
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .made-by { color: var(--primary-green); font-weight: 700; }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25%, 75% { transform: translateX(-4px); }
-      50% { transform: translateX(4px); }
-    }
-
-    .shake-once { animation: shake 0.5s ease-in-out; }
-  </style>
+  <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
 
@@ -172,30 +28,42 @@
   <!-- Cards -->
   <div class="cards-section">
 
-    <a href="https://www.youtube.com/@PauGamer-uh2zp" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fa-brands fa-youtube"></i></div>
-      <div class="card-text">Kênh YouTube</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-
+    <!-- 1. Tải File Và Cách Cài -->
     <a href="files.html" target="_blank" class="card-link">
       <div class="icon-wrapper"><i class="fas fa-crosshairs"></i></div>
       <div class="card-text">Tải File Và Cách Cài</div>
       <i class="fas fa-arrow-right arrow"></i>
     </a>
 
-    <a href="https://www.facebook.com/hennrynhut" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fa-brands fa-facebook-f"></i></div>
-      <div class="card-text">Liên hệ Facebook</div>
+    <!-- 3. Trick Kéo Tâm Headshot Free Fire (Mới thêm) -->
+    <a href="tricks.html" target="_blank" class="card-link">
+      <div class="icon-wrapper"><i class="fas fa-bullseye"></i></div>
+      <div class="card-text">Trick Full Đỏ Và Headshot Free Fire</div>
       <i class="fas fa-arrow-right arrow"></i>
     </a>
 
+    <!-- 4. Tải Free Fire 2018 -->
     <a href="https://link4m.net/qom883B" target="_blank" class="card-link">
       <div class="icon-wrapper"><i class="fas fa-gamepad"></i></div>
       <div class="card-text">Tải Free Fire 2018</div>
       <i class="fas fa-arrow-right arrow"></i>
     </a>
 
+    <!-- 5. Kênh YouTube -->
+    <a href="https://www.youtube.com/@PauGamer-uh2zp" target="_blank" class="card-link">
+      <div class="icon-wrapper"><i class="fa-brands fa-youtube"></i></div>
+      <div class="card-text">Kênh YouTube</div>
+      <i class="fas fa-arrow-right arrow"></i>
+    </a>
+
+    <!-- 6. Liên hệ Facebook -->
+    <a href="https://www.facebook.com/hennrynhut" target="_blank" class="card-link">
+      <div class="icon-wrapper"><i class="fa-brands fa-facebook-f"></i></div>
+      <div class="card-text">Liên hệ Facebook</div>
+      <i class="fas fa-arrow-right arrow"></i>
+    </a>
+
+    <!-- 7. Xem Portfolio -->
     <a href="https://y-nhen-adrong-portfolio.onrender.com/" target="_blank" class="card-link">
       <div class="icon-wrapper"><i class="fas fa-briefcase"></i></div>
       <div class="card-text">Xem Portfolio</div>
@@ -213,20 +81,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // === LOGIC ĐẾM LƯỢT TRUY CẬP REALTIME (CountAPI) ===
-    const COUNTER_NAMESPACE = "nhendeveloper";   // Bạn có thể đổi tên này nếu muốn
+    const COUNTER_NAMESPACE = "nhendeveloper";
     const COUNTER_KEY = "visits";
 
     async function updateVisitorCount() {
       const countEl = document.getElementById('visitorCount');
       
       try {
-        // Tăng lượt truy cập và lấy giá trị mới
         const response = await fetch(`https://api.countapi.xyz/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
         const data = await response.json();
         
-        // Hiển thị số với hiệu ứng tăng dần
         let current = 0;
-        const target = data.value || 1245; // fallback nếu lỗi
+        const target = data.value || 1245;
         
         const interval = setInterval(() => {
           current += Math.ceil((target - current) / 8);
@@ -238,18 +104,16 @@
         }, 40);
         
       } catch (error) {
-        // Nếu API lỗi (ví dụ mạng chậm), hiển thị số mặc định
         countEl.textContent = `Lượt truy cập: 1,245+`;
       }
     }
 
-    // Hiệu ứng rung avatar
+    // Hiệu ứng rung avatar + đếm lượt truy cập
     window.addEventListener('load', () => {
       const avatar = document.getElementById('avatar');
       avatar.classList.add('shake-once');
       setTimeout(() => avatar.classList.remove('shake-once'), 800);
 
-      // Gọi hàm đếm lượt truy cập
       updateVisitorCount();
     });
 
