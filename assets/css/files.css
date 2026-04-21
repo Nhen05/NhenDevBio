@@ -1,178 +1,243 @@
+:root {
+  --primary-green: #00ff9d;
+  --dark-bg: #0a0a0a;
+}
 
-    :root {
-      --primary-green: #00ff9d;
-      --dark-bg: #0a0a0a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--dark-bg);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
-    }
-    .bio-header {
-      padding: 70px 20px 40px;
-      text-align: center;
-      background: rgba(10,10,10,0.95);
-    }
-    .title-trick {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--primary-green);
-      text-align: center;
-      margin: 10px 0 30px;
-      text-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid var(--primary-green);
-      box-shadow: 0 0 40px rgba(0, 255, 157, 0.6);
-      margin-bottom: 15px;
-    }
+body {
+  background: var(--dark-bg);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
 
-    .name {
-      font-size: 2.2rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #ffffff, var(--primary-green));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .visitor-count {
-      font-size: 1.1rem;
-      color: var(--primary-green);
-      margin-top: 12px;
-      font-weight: 700;
-    }
+.bio-header {
+  padding: 70px 20px 40px;
+  text-align: center;
+  background: rgba(10, 10, 10, 0.95);
+}
 
-    .cards-section {
-      padding: 15px 15px 40px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
+.title-trick {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--primary-green);
+  text-align: center;
+  margin: 10px 0 30px;
+  text-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+}
 
-    /* Card 2 cột */
-    .product-card {
-      background: rgba(255,255,255,0.05);
-      border: 2px solid rgba(0, 255, 157, 0.3);
-      border-radius: 18px;
-      padding: 16px 18px;
-      margin-bottom: 18px;
-      transition: all 0.4s ease;
-      overflow: hidden;
-      box-shadow: 0 0 25px rgba(0, 255, 157, 0.25);
-      text-align: center;               /* Căn giữa nội dung card */
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--primary-green);
-      box-shadow: 0 0 35px rgba(0, 255, 157, 0.6);
-      background: rgba(0, 255, 157, 0.08);
-    }
+/* Container cho ảnh + nhãn */
+.card-image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
 
-    .card-gif {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(0, 255, 157, 0.2);
-    }
+.card-image-container img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
 
-    .card-title {
-      color: var(--primary-green);
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .card-desc {
-      color: #ccffdd;
-      font-size: 0.98rem;
-      margin-bottom: 12px;
-    }
-    .download-btn {
-      background: var(--primary-green);
-      color: #000;
-      font-weight: bold;
-      padding: 11px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s;
-    }
-    .download-btn:hover {
-      background: #00cc7a;
-      transform: scale(1.05);
-    }
+/* Nhãn PREMIUM */
+.premium-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(255, 170, 0, 0.4);
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-    /* Phần hướng dẫn cài đặt */
-    .install-guide {
-      background: rgba(0,0,0,0.7);
-      border: 2px solid var(--primary-green);
-      border-radius: 16px;
-      padding: 22px 20px;
-      margin: 20px auto 35px;
-      max-width: 720px;
-      color: #ccffdd;
-      line-height: 1.8;
-      text-align: center;
-    }
+/* Nhãn VIP */
+.vip-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ff00aa, #aa00ff);
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(170, 0, 255, 0.5);
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-    .footer {
-      text-align: center;
-      padding: 30px 15px;
-      color: #888;
-      font-size: 0.92rem;
-    }
-     /* NÚT QUAY LẠI */
-    .back-button-container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 0 15px 8px;
-    }
- /* NÚT QUAY LẠI */
-    .back-button-container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 0 15px 8px;
-    }
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-green);
+  box-shadow: 0 0 40px rgba(0, 255, 157, 0.6);
+  margin-bottom: 15px;
+}
 
-    .btn-back {
-      background: rgba(0, 255, 157, 0.12);
-      color: var(--primary-green);
-      border: 2px solid var(--primary-green);
-      padding: 11px 22px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.08rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.4s ease;
-      box-shadow: 0 0 15px rgba(0, 255, 157, 0.25);
-      width: 100%;
-      justify-content: center;
-    }
+.name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffffff, var(--primary-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .btn-back:hover {
-      background: var(--primary-green);
-      color: #000;
-      transform: translateX(-8px);
-      box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
-    }
+.visitor-count {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  margin-top: 12px;
+  font-weight: 700;
+}
 
-    .made-by { color: var(--primary-green); font-weight: 700; }
+.cards-section {
+  padding: 15px 15px 40px;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
-    /* Responsive 2 cột */
-    @media (min-width: 576px) {
-      .cards-section {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-      }
-      .product-card {
-        margin-bottom: 0;
-      }
-    }
+/* Card 2 cột */
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.25);
+  text-align: center;
+  /* Căn giữa nội dung card */
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-green);
+  box-shadow: 0 0 35px rgba(0, 255, 157, 0.6);
+  background: rgba(0, 255, 157, 0.08);
+}
+
+.card-gif {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+.card-title {
+  color: var(--primary-green);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  color: #ccffdd;
+  font-size: 0.98rem;
+  margin-bottom: 12px;
+}
+
+.download-btn {
+  background: var(--primary-green);
+  color: #000;
+  font-weight: bold;
+  padding: 11px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #00cc7a;
+  transform: scale(1.05);
+}
+
+/* Phần hướng dẫn cài đặt */
+.install-guide {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--primary-green);
+  border-radius: 16px;
+  padding: 22px 20px;
+  margin: 20px auto 35px;
+  max-width: 720px;
+  color: #ccffdd;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #888;
+  font-size: 0.92rem;
+}
+
+/* NÚT QUAY LẠI */
+.back-button-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 15px 8px;
+}
+
+/* NÚT QUAY LẠI */
+.back-button-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 15px 8px;
+}
+
+.btn-back {
+  background: rgba(0, 255, 157, 0.12);
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  padding: 11px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.08rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.25);
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-back:hover {
+  background: var(--primary-green);
+  color: #000;
+  transform: translateX(-8px);
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
+}
+
+.made-by {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+/* Responsive 2 cột */
+@media (min-width: 576px) {
+  .cards-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .product-card {
+    margin-bottom: 0;
+  }
+}
