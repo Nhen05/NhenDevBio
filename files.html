@@ -13,7 +13,152 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/files.css">
 </head>
+<style>
+/* ===== GRID ===== */
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
 
+/* ===== CARD ===== */
+.product-card {
+  background: #0d1117;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0,255,200,0.2);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,255,200,0.3);
+}
+
+/* ===== IMAGE ===== */
+.card-image-container {
+  position: relative;
+}
+
+.card-gif {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ===== LABEL ===== */
+.vip-label,
+.premium-label,
+.updated-label,
+.limited-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.vip-label { background: linear-gradient(45deg, gold, orange); color:#000; }
+.premium-label { background: linear-gradient(45deg, #ff00cc, #3333ff); }
+.updated-label { background: #00c853; }
+.limited-label { background: #ff1744; }
+
+/* ===== TEXT ===== */
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #00ffcc;
+  margin: 12px 0 6px;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.card-author {
+  font-size: 0.78rem;
+  color: #00ffcc;
+  margin: 10px 0;
+  letter-spacing: 0.5px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 200, 0.15),
+    rgba(0, 255, 200, 0.05)
+  );
+
+  border: 1px solid rgba(0, 255, 200, 0.4);
+
+  box-shadow: 0 0 8px rgba(0, 255, 200, 0.2);
+}
+
+/* icon */
+.card-author::before {
+  content: "⚙️";
+  font-size: 0.75rem;
+}
+
+/* hover nhẹ */
+.product-card:hover .card-author {
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.4);
+}
+
+/* ===== META ===== */
+.card-meta my-4 mx-auto {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.card-type {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.card-type.vip { background: gold; color:#000; }
+.card-type.premium { background: #9c27b0; color:#fff; }
+.card-type.limited { background: #ff1744; color:#fff; }
+.card-type.updated { background: #00c853; color:#fff; }
+
+.card-stock {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0, 255, 200, 0.08);
+  color: #00ffcc;
+  border: 1px solid rgba(0, 255, 200, 0.3);
+}
+/* ===== BUTTON ===== */
+.download-btn {
+  display: block;
+  text-align: center;
+  background: linear-gradient(45deg, #00ffcc, #00c853);
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00ffcc;
+}
+</style>
 <body>
 
   <div class="bio-header">
@@ -52,101 +197,149 @@
   </div>
   <h2 class="title-trick">TẤT CẢ FILES FREE FIRE</h2>
   <div class="cards-section">
-    <!-- Card 2: AIMHEAD PREMIUM -->
+
+    <!-- FREE FIRE 2018 -->
     <div class="product-card">
       <div class="card-image-container">
-        <img src="https://i.ibb.co/mFzLVNpf/2026-04-21-12-39-23-Lumina.gif" alt="AIMHEAD PREMIUM" class="card-gif">
+        <img src="https://i.ibb.co/mFzLVNpf/2026-04-21-12-39-23-Lumina.gif" class="card-gif">
+        <div class="vip-label">VIP</div>
+      </div>
+      <div class="card-title">🔥 FREE FIRE CŨ BẢN 2018 HUYỀN THOẠI</div>
+      <div class="card-desc">Bản nhẹ nhất, tối ưu FPS thấp -  phù hợp mọi máy</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type vip">VIP</span>
+        <span class="card-stock">Có Sẵn: 42</span>
+      </div>
+      <a href="https://link4m.com/zlHQk" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- REVERSE AIM -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/93zxN79W/2026-04-18-17-48-51-Lumina.gif" class="card-gif"> 
+        <div class="limited-label">LIMITED</div>
+      </div>
+      <div class="card-title">🎯 CẤU HÌNH KÉO TÂM NGƯỢC PRO</div>
+      <div class="card-desc">Fix rung tâm, kéo đầu cực mạnh - tăng tỉ lệ headshot sau vài trận</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type limited">Giới hạn</span>
+        <span class="card-stock">Có Sẵn: 15</span>
+      </div>
+      <a href="https://link4m.net/QRTZeb" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- COMBO -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/Rkqzy70C/2026-04-21-12-54-05-Lumina.gif" class="card-gif">
+        <div class="premium-label">PREMIUM</div>
+      </div>
+      <div class="card-title">⚡ COMBO AIMLOCK & AIMHEAD</div>
+      <div class="card-desc">Khóa tâm + kéo đầu siêu nhanh, gần như không trượt</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type premium">Premium</span>
+        <span class="card-stock">Có Sẵn: 67</span>
+      </div>
+      <a href="https://link4m.com/ER2mU" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- AIMLOCK MAX -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/Rkqzy70C/2026-04-21-12-54-05-Lumina.gif" class="card-gif">
+        <div class="vip-label">VIP</div>
+      </div>
+      <div class="card-title">🚀 AIMLOCK SUPREME MAX</div>
+      <div class="card-desc">Khoá mục tiêu cực nhanh, dành cho tryhard & rank cao</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type vip">VIP</span>
+        <span class="card-stock">Có Sẵn: 28</span>
+      </div>
+      <a href="https://link4m.com/lgK2i" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- AIMLOCK 99 -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" class="card-gif">
+        <div class="updated-label">UPDATED</div>
+      </div>
+      <div class="card-title">🔒 AIMLOCK 99%</div>
+      <div class="card-desc">Tracking mượt, ổn định, phù hợp chơi lâu dài</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type updated">Mới</span>
+        <span class="card-stock">Có Sẵn: 999+</span>
+      </div>
+      <a href="https://link4m.net/SVH5yK" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- AIMHECK -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" class="card-gif">
+        <div class="premium-label">PREMIUM</div>
+      </div>
+      <div class="card-title">💥 AIMHECK PRO 100%</div>
+      <div class="card-desc">Auto kéo đầu + boost damage, bắn là dính headshot</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type premium">Premium</span>
+        <span class="card-stock">Có Sẵn: 53</span>
+      </div>
+      <a href="https://link4m.net/pwjlZz" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- AIMHEAD MAX -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/Z6prgDvc/2026-04-21-12-59-38-Lumina.gif" class="card-gif">
+        <div class="vip-label">VIP</div>
+      </div>
+      <div class="card-title">🎯 AIMHEAD SUPREME MAX</div>
+      <div class="card-desc">Kéo đầu cực gắt, tỉ lệ headshot gần như tuyệt đối</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type vip">VIP</span>
+        <span class="card-stock">Có Sẵn: 21</span>
+      </div>
+      <a href="https://link4m.com/SxCwk" target="_blank" class="download-btn">📥 Tải Ngay</a>
+    </div>
+
+    <!-- AIMHEAD PREMIUM -->
+    <div class="product-card">
+      <div class="card-image-container">
+        <img src="https://i.ibb.co/mFzLVNpf/2026-04-21-12-39-23-Lumina.gif" class="card-gif">
         <div class="premium-label">PREMIUM</div>
       </div>
       <div class="card-title">🔥 AIMHEAD PREMIUM</div>
-      <div class="card-desc">Antiban 100% + Cài Cho FF Max Và Thường</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/gbaFPF" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
+      <div class="card-desc">An toàn, ổn định, hạn chế tối đa rủi ro khi sử dụng</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type premium">Premium</span>
+        <span class="card-stock">Có Sẵn: 60</span>
+      </div>
+      <a href="https://link4m.net/CKE5VN" target="_blank" class="download-btn">📥 Tải Ngay</a>
     </div>
 
-    <!-- Card 3: AIMLOCK SUPPER MAX -->
+    <!-- AIMHEAD ANTIBAN -->
     <div class="product-card">
       <div class="card-image-container">
-        <img src="https://i.ibb.co/Rkqzy70C/2026-04-21-12-54-05-Lumina.gif" alt="AIMLOCK SUPPER MAX" class="card-gif">
-        <div class="vip-label">VIP</div>
+        <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" class="card-gif">
+        <div class="updated-label">UPDATED</div>
       </div>
-      <div class="card-title">🔥 AIMLOCK SUPPER MAX</div>
-      <div class="card-desc">Antiban 100% + Cài Cho FF Max Và Thường</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.com/qZO3EMz2" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-
-    <!-- Card 4: AIMHEAD SUPPER MAX -->
-    <div class="product-card">
-      <div class="card-image-container">
-        <img src="https://i.ibb.co/Z6prgDvc/2026-04-21-12-59-38-Lumina.gif" alt="AIMHEAD SUPPER MAX" class="card-gif">
-        <div class="premium-label">PREMIUM</div>
-      </div>
-      <div class="card-title">🔥 AIMHEAD SUPPER MAX</div>
-      <div class="card-desc">Antiban 100% + Cài Cho FF Max Và Thường</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/p2yXpiVE" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-    <!-- Card 1 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/93zxN79W/2026-04-18-17-48-51-Lumina.gif" alt="AIMHEAD" class="card-gif">
-      <div class="card-title">>🔥 FILES ĐẶT KEO NGƯỢC</div>
-      <div class="card-desc">Antiban 100% + Cài Cho FF Max Và Thường</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/SKXNL" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-    <!-- Card 1 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" alt="AIMHEAD" class="card-gif">
       <div class="card-title">🎯 AIMHEAD ANTIBAN 100%</div>
-      <div class="card-desc">Aimhead cực mạnh + AntiBan an toàn nhất hiện nay</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/hVwWH" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" alt="AIMLOCK" class="card-gif">
-      <div class="card-title">🔒 AIMLOCK 99%</div>
-      <div class="card-desc">Khóa mục tiêu siêu mượt, hỗ trợ Free Fire thường & Max</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.com/tjuUo" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" alt="AIMHECK" class="card-gif">
-      <div class="card-title">💥 AIMHECK 100%</div>
-      <div class="card-desc">Aim + Headshot kết hợp, tốc độ cực nhanh</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/APlNT33" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" alt="HEADSHOT SUPPER" class="card-gif">
-      <div class="card-title">🏆 HEADSHOT SUPPER</div>
-      <div class="card-desc">Headshot liên tục, tỉ lệ thành công cao</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.com/9ZoyX" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" alt="SUPPER AIMLOCK" class="card-gif">
-      <div class="card-title">⚡ SUPPER AIMLOCK 100%</div>
-      <div class="card-desc">Aimlock mạnh nhất, dành cho người chơi chuyên nghiệp</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/ntYtHH" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="product-card">
-      <img src="https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif" alt="AIMHEAD V2" class="card-gif">
-      <div class="card-title">🎯 AIMHEAD ANTIBAN 100% (Phiên bản 2)</div>
-      <div class="card-desc">Phiên bản nâng cấp - An toàn & ổn định hơn</div>
-      <p style="font-size: 0.9rem; color: #99ffcc; margin-bottom: 12px;">Created by NHEN DEVELOPER</p>
-      <a href="https://link4m.net/v2se8" target="_blank" class="download-btn">📥 TẢI FILE Ở ĐÂY</a>
+      <div class="card-desc">Bản an toàn nhất, hạn chế phát hiện, phù hợp chơi lâu dài</div>
+      <p class="card-author">Phát triển bởi NHEN DEVELOPER</p>
+      <div class="card-meta my-4 mx-auto">
+        <span class="card-type updated">Mới</span>
+        <span class="card-stock">Có Sẵn: 999+</span>
+      </div>
+      <a href="https://link4m.com/dwEJARYx" target="_blank" class="download-btn">📥 Tải Ngay</a>
     </div>
 
   </div>
