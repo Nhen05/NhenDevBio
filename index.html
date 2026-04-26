@@ -88,52 +88,8 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // === LOGIC ĐẾM LƯỢT TRUY CẬP REALTIME (CountAPI) ===
-    const COUNTER_NAMESPACE = "nhendeveloper";
-    const COUNTER_KEY = "visits";
+  <script src="./assets/js/Visit.js"></script>
 
-    async function updateVisitorCount() {
-      const countEl = document.getElementById('visitorCount');
-
-      try {
-        const response = await fetch(`https://api.countapi.xyz/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
-        const data = await response.json();
-
-        let current = 0;
-        const target = data.value || 1245;
-
-        const interval = setInterval(() => {
-          current += Math.ceil((target - current) / 8);
-          if (current >= target) {
-            current = target;
-            clearInterval(interval);
-          }
-          countEl.textContent = `Lượt truy cập: ${current.toLocaleString('vi-VN')}`;
-        }, 40);
-
-      } catch (error) {
-        countEl.textContent = `Lượt truy cập: 1,245+`;
-      }
-    }
-
-    // Hiệu ứng rung avatar + đếm lượt truy cập
-    window.addEventListener('load', () => {
-      const avatar = document.getElementById('avatar');
-      avatar.classList.add('shake-once');
-      setTimeout(() => avatar.classList.remove('shake-once'), 800);
-
-      updateVisitorCount();
-    });
-
-    // Hiệu ứng click card
-    document.querySelectorAll('.card-link').forEach(card => {
-      card.addEventListener('click', function () {
-        this.style.transform = 'scale(0.94)';
-        setTimeout(() => this.style.transform = '', 180);
-      });
-    });
-  </script>
 </body>
 
 </html>
