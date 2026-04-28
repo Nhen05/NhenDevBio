@@ -4,92 +4,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NHEN DEVELOPER</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <title>TẤT CẢ LINK FREE FIRE - NHEN DEVELOPER</title>
   <link rel="icon" type="image/jpeg"
     href="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo">
-  <link rel="stylesheet" href="./assets/css/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
 </head>
 
 <body>
+  <canvas id="c"></canvas>
+  <div class="wrap">
 
-  <!-- Bio Header -->
-  <div class="bio-header">
-    <img
-      src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
-      alt="NHEN DEVELOPER" class="avatar" id="avatar">
+    <div class="ava-wrap">
+      <div class="ava-outer">
+        <div class="ava-blur"></div>
+        <div class="ava-ring"></div>
+        <img class="ava-img"
+          src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+          alt="NHEN DEVELOPER">
+        <div class="hex-badge">DEV</div>
+      </div>
+      <h1 class="name">NHEN DEVELOPER</h1>
+      <p class="sub">Developer • Free Fire Tools • Mod & Portfolio</p>
+      <div class="visitor">
+        <i class="fas fa-circle"></i>
+        <span id="visitorCount">Đang tải lượt truy cập...</span>
+      </div>
+    </div>
 
-    <h1 class="name">NHEN DEVELOPER</h1>
-    <p>Developer • Free Fire Tools • Mod & Portfolio</p>
+    <div class="divider"><span>menu</span></div>
 
-    <!-- Lượt truy cập realtime -->
-    <div class="visitor-count" id="visitorCount">
-      Đang tải lượt truy cập...
+    <div class="cards">
+
+      <a href="files.html" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fas fa-crosshairs"></i></div>
+        <div class="card-txt">Tải File Và Cách Cài</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <!-- ĐỘ NHẠY FULL MÁU ĐỎ SIÊU CHUẨN -->
+      <a href="https://api.dak.edu.vn/headshot-tool/index.html" target="_blank" class="card-link blood">
+        <div class="icon-w"><i class="fas fa-tint"></i></div>
+        <div class="card-txt">ĐỘ NHẠY FULL MÁU ĐỎ SIÊU CHUẨN</div>
+        <span class="hot-badge">HOT</span>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <a href="tricks.html" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fas fa-bullseye"></i></div>
+        <div class="card-txt">Trick Full Đỏ Và Headshot Free Fire</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <a href="chatbox.html" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fas fa-sliders-h"></i></div>
+        <div class="card-txt">ChatBox Độ Nhạy Dpi Và Dpi Pixels</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <a href="https://link4m.net/qom883B" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fas fa-gamepad"></i></div>
+        <div class="card-txt">Tải Free Fire 2018</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <a href="https://www.youtube.com/@PauGamer-uh2zp" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fa-brands fa-youtube"></i></div>
+        <div class="card-txt">Kênh YouTube</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <a href="https://www.facebook.com/hennrynhut" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fa-brands fa-facebook-f"></i></div>
+        <div class="card-txt">Liên hệ Facebook</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+      <a href="https://y-nhen-adrong-portfolio.onrender.com/" target="_blank" class="card-link">
+        <div class="icon-w"><i class="fas fa-briefcase"></i></div>
+        <div class="card-txt">Xem Portfolio</div>
+        <i class="fas fa-arrow-right arr"></i>
+      </a>
+
+    </div>
+
+    <div class="foot">
+      <p>Được lập trình bởi <span class="by">NHEN DEVELOPER</span></p>
+      <p style="margin-top:5px">&copy; 2026 • @NO COPYRIGHT</p>
     </div>
   </div>
-
-  <!-- Cards -->
-  <div class="cards-section" >
-
-    <!-- 1. Tải File Và Cách Cài -->
-    <a href="files.html" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fas fa-crosshairs"></i></div>
-      <div class="card-text">Tải File Và Cách Cài</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-
-    <!-- 3. Trick Kéo Tâm Headshot Free Fire (Mới thêm) -->
-    <a href="tricks.html" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fas fa-bullseye"></i></div>
-      <div class="card-text">Trick Full Đỏ Và Headshot Free Fire</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-    <!-- 4. Tải Free Fire 2018 -->
-    <a href="chatbox.html " target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fas fa-crosshairs"></i></div>
-      <div class="card-text">ChatBox Độ Nhạy Dpi Và Dpi Pixels</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-    <!-- 4. Tải Free Fire 2018 -->
-    <a href="https://link4m.net/qom883B" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fas fa-gamepad"></i></div>
-      <div class="card-text">Tải Free Fire 2018</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-
-    <!-- 5. Kênh YouTube -->
-    <a href="https://www.youtube.com/@PauGamer-uh2zp" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fa-brands fa-youtube"></i></div>
-      <div class="card-text">Kênh YouTube</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-
-    <!-- 6. Liên hệ Facebook -->
-    <a href="https://www.facebook.com/hennrynhut" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fa-brands fa-facebook-f"></i></div>
-      <div class="card-text">Liên hệ Facebook</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-
-    <!-- 7. Xem Portfolio -->
-    <a href="https://y-nhen-adrong-portfolio.onrender.com/" target="_blank" class="card-link">
-      <div class="icon-wrapper"><i class="fas fa-briefcase"></i></div>
-      <div class="card-text">Xem Portfolio</div>
-      <i class="fas fa-arrow-right arrow"></i>
-    </a>
-
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p>Được lập trình bởi <span class="made-by">NHEN DEVELOPER</span></p>
-    <p style="margin-top: 6px;">&copy; 2026 • @NO COPYRIGHT</p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/Visit.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="background.js"></script>
 </body>
 
 </html>
