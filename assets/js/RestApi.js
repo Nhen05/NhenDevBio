@@ -97,34 +97,34 @@ function renderFiles(files) {
     }).join('');
 }
 
-// 3. Render Phân trang (Pagination) bên dưới container-file
 function renderPagination(paging) {
     let pgBox = document.getElementById('pagination-box');
     if (!pgBox) {
         pgBox = document.createElement('nav');
         pgBox.id = 'pagination-box';
-        pgBox.className = 'pagination-box';
+        pgBox.className = 'pagination-box mt-4'; // Thêm margin top cho đẹp
         document.getElementById('container-file').after(pgBox);
     }
 
-    if (paging.total_pages <= 1) {
+    // Kiểm tra nếu tổng số trang <= 1 thì ẩn phân trang
+    if (!paging || paging.pages <= 1) {
         pgBox.innerHTML = '';
         return;
     }
 
-    let current = paging.current_page;
-    let total = paging.total_pages;
+    // LẤY ĐÚNG TÊN TỪ JSON: paging.page và paging.pages
+    let current = parseInt(paging.page); 
+    let total = parseInt(paging.pages);
 
     let items = '';
-
-    // chỉ hiển thị 5 trang quanh current
     let start = Math.max(1, current - 2);
     let end = Math.min(total, current + 2);
 
-    if (start > 1) {
-        items += `<li class="page-item"><span class="page-dot">...</span></li>`;
-    }
+    // Nút lùi trang (Previous)
+    let prevDisabled = current === 1 ? 'disabled' : '';
+    let prevOnClick = current === 1 ? '' : `onclick="loadData(${current - 1}, '${currentCategory}')"`;
 
+    // Render các số trang
     for (let i = start; i <= end; i++) {
         items += `
         <li class="page-item ${current === i ? 'active' : ''}">
@@ -132,20 +132,24 @@ function renderPagination(paging) {
         </li>`;
     }
 
-    if (end < total) {
-        items += `<li class="page-item"><span class="page-dot">...</span></li>`;
-    }
+    // Nút tiến trang (Next)
+    let nextDisabled = current === total ? 'disabled' : '';
+    let nextOnClick = current === total ? '' : `onclick="loadData(${current + 1}, '${currentCategory}')"`;
 
     pgBox.innerHTML = `
-    <ul class="pagination">
-        <li class="page-item ${current === 1 ? 'disabled' : ''}">
-            <button class="page-link" onclick="loadData(${current - 1}, '${currentCategory}')">‹</button>
+    <ul class="pagination justify-content-center">
+        <li class="page-item ${prevDisabled}">
+            <button class="page-link" ${prevOnClick}>‹</button>
         </li>
 
+        ${start > 1 ? '<li class="page-item"><span class="page-dot">...</span></li>' : ''}
+        
         ${items}
 
-        <li class="page-item ${current === total ? 'disabled' : ''}">
-            <button class="page-link" onclick="loadData(${current + 1}, '${currentCategory}')">›</button>
+        ${end < total ? '<li class="page-item"><span class="page-dot">...</span></li>' : ''}
+
+        <li class="page-item ${nextDisabled}">
+            <button class="page-link" ${nextOnClick}>›</button>
         </li>
     </ul>`;
 }
