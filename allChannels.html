@@ -15,77 +15,8 @@
 
     <link rel="stylesheet" href="./assets/css/tricks.css">
     <link rel="stylesheet" href="global.css">
-
-    <style>
-        /* ========== REDESIGN CARD YOUTUBE - MOBILE OPTIMIZED ========== */
-        .yt-card {
-            background-color: #1e2937;
-            border-radius: 18px;
-            padding: 14px 16px;
-            border: 1px solid #334155;
-            transition: all 0.2s ease;
-            min-height: 118px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .yt-card:active {
-            transform: scale(0.985);
-            border-color: #475569;
-        }
-
-        .yt-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 9999px;
-            border: 2px solid #475569;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .yt-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: #f1f5f9;
-            line-height: 1.35;
-            margin-bottom: 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .yt-subs {
-            font-size: 13px;
-            font-weight: 600;
-            color: #10b981;
-        }
-
-        .btn-watch {
-            background-color: #ef4444;
-            color: white;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 11px 0;
-            border-radius: 14px;
-            text-align: center;
-            display: block;
-            margin-top: auto;
-            text-decoration: none;
-            transition: background-color 0.2s ease;
-            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.25);
-            margin-top: 10px;
-        }
-
-        .btn-watch:active {
-            background-color: #dc2626;
-            transform: scale(0.98);
-        }
-
-        .yt-info {
-            flex: 1;
-            min-width: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/allchanels.css">
+   
 </head>
 
 <body>
@@ -114,7 +45,7 @@
         </a>
     </div>
 
-    <h2 class="title-trick">TẤT CẢ KÊNH YOUTUBE</h2>
+    <h4 class="title-trick">Tất cả kênh youtube của Nhen Developer</h4>
 
     <!-- GRID CARD -->
     <div class="max-w-[480px] mx-auto px-4 pb-12">
@@ -136,7 +67,6 @@
                     <i class="fab fa-youtube mr-2"></i> XEM KÊNH
                 </a>
             </div>
-
             <!-- Các card còn lại -->
             <div id="ch2" class="yt-card"></div>
             <div id="ch3" class="yt-card"></div>
@@ -146,10 +76,15 @@
             <div id="ch7" class="yt-card"></div>
             <div id="ch8" class="yt-card"></div>
             <div id="ch9" class="yt-card"></div>
+            <div id="ch10" class="yt-card"></div>
+            <div id="ch11" class="yt-card"></div>
 
         </div>
     </div>
-
+ <div class="foot">
+      <p>Được lập trình bởi <span class="by">NHEN DEVELOPER</span></p>
+      <p style="margin-top:5px">&copy; 2026 • @NO COPYRIGHT</p>
+    </div>
     <!-- YOUTUBE API SCRIPT (GIỮ NGUYÊN) -->
     <script>
         const API_KEY = "AIzaSyCaRuBpmZHliL7vAGiO6PVMoXbEVlqyJ74";
@@ -197,8 +132,12 @@
         loadYouTubeChannel("CodeToKill", "ch7", "https://youtube.com/@CodeToKill");
         loadYouTubeChannel("pettoonsfun", "ch8", "https://youtube.com/@pettoonsfun");
         loadYouTubeChannel("nhenffno1", "ch9", "https://youtube.com/@nhenffno1");
-    </script>
+        loadYouTubeChannel("KillZoneFF05", "ch10", "https://youtube.com/@KillZoneFF05");
+        loadYouTubeChannel("KillZoneFF05", "ch10", "https://youtube.com/@KillZoneFF05");
+        loadYouTubeChannel("yna05", "ch11", "https://youtube.com/@yna05");
 
+
+    </script>
     <script src="./assets/js/Visit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="background.js"></script>
