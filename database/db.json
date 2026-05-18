@@ -1,0 +1,156 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Game Version",
+      "slug": "version"
+    },
+    {
+      "id": 2,
+      "name": "Aim Lock",
+      "slug": "aimlock"
+    },
+    {
+      "id": 3,
+      "name": "Headshot",
+      "slug": "headshot"
+    },
+    {
+      "id": 4,
+      "name": "Support Tool",
+      "slug": "support"
+    },
+    {
+      "id": 5,
+      "name": "Skin Mod",
+      "slug": "skin"
+    }
+  ],
+
+  "tags": [
+    { "id": 1, "name": "aimlock" },
+    { "id": 2, "name": "aimbot" },
+    { "id": 3, "name": "no recoil" },
+    { "id": 4, "name": "ultralock" },
+    { "id": 5, "name": "antiban" },
+    { "id": 6, "name": "premium" },
+    { "id": 7, "name": "vip" },
+    { "id": 8, "name": "free fire" }
+  ],
+
+  "files": [
+    {
+      "id": 13,
+      "title": "AIMLOCK IPHONE AVATAR",
+      "description": "File aimlock Heashot iphone antiban ,không rung tâm,không khóa acc",
+      "image": "https://i.ibb.co/ymMkB7kk/Gemini-Generated-Image-ubwptdubwptdubwp.png",
+      "download_url": "https://link4m.com/g0Fw7r",
+      "type": "TOOL",
+      "category_id": 1,
+      "stock": 999,
+      "is_unlimited": true,
+      "author": "NHEN DEV",
+      "status": "PUBLISHED",
+      "created_at": "2026-05-16T05:10:57.000Z",
+      "tags": [1, 5]
+    },
+    {
+      "id": 10,
+      "title": "APP AIMLOCK SUPPER VIP",
+      "description": "ỨNG DỤNG(APP) AIM LOCK NHIỀU CHỨC NĂNG AIMBOT, NO RECOIL, ULTRALOCK,FIX LAG",
+      "image": "https://i.ibb.co/7NRvyC1W/ff6e8a4b-7e50-4019-b6bb-e3a2f836d33a.jpg",
+      "download_url": "https://link4m.net/K09eKf",
+      "type": "Application",
+      "category_id": 4,
+      "stock": 333,
+      "is_unlimited": false,
+      "author": "NHEN DEVELOPER",
+      "status": "PUBLISHED",
+      "created_at": "2026-04-29T10:14:40.000Z",
+      "tags": [1, 2, 3, 4]
+    },
+    {
+      "id": 1,
+      "title": "FREE FIRE PHIÊN BẢN CŨ 2018",
+      "description": "Tải Free Fire phiên bản cũ 2018 ,Có sẵn 99999 kim cương",
+      "image": "https://s2-techtudo.glbimg.com/TZil5B9QAg5mTcLyqT0JpPABDWY=/0x0:1440x810/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/p/A/VYcFvGQ7WX7ILB7nFseg/1q.jpg",
+      "download_url": "https://link4m.com/zlHQk",
+      "type": "VIP",
+      "category_id": 1,
+      "stock": 42,
+      "is_unlimited": false,
+      "author": "NHEN DEVELOPER",
+      "status": "PUBLISHED",
+      "created_at": "2026-04-29T10:12:33.000Z",
+      "tags": [1, 7, 8]
+    },
+    {
+      "id": 2,
+      "title": "File Đặt Keo Ngược",
+      "description": "File hỗ trợ đặt keo ngược, ổn định, antiban 100%",
+      "image": "https://i.ibb.co/93zxN79W/2026-04-18-17-48-51-Lumina.gif",
+      "download_url": "https://link4m.net/QRTZeb",
+      "type": "LIMITED",
+      "category_id": 2,
+      "stock": 15,
+      "is_unlimited": false,
+      "author": "NHEN DEVELOPER",
+      "status": "PUBLISHED",
+      "created_at": "2026-04-29T10:12:33.000Z",
+      "tags": [1, 5]
+    },
+    {
+      "id": 3,
+      "title": "Combo Aimlock & Aimhead",
+      "description": "Combo khóa tâm + kéo đầu siêu nhanh, cực bá",
+      "image": "https://i.ibb.co/Rkqzy70C/2026-04-21-12-54-05-Lumina.gif",
+      "download_url": "https://link4m.com/ER2mU",
+      "type": "PREMIUM",
+      "category_id": 1,
+      "stock": 67,
+      "is_unlimited": false,
+      "author": "NHEN DEVELOPER",
+      "status": "PUBLISHED",
+      "created_at": "2026-04-29T10:12:33.000Z",
+      "tags": [1, 2]
+    },
+    {
+      "id": 5,
+      "title": "Aimlock 99%",
+      "description": "Tracking mượt, ổn định, phù hợp mọi thiết bị",
+      "image": "https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif",
+      "download_url": "https://link4m.net/SVH5yK",
+      "type": "UPDATED",
+      "category_id": 1,
+      "stock": 999,
+      "is_unlimited": true,
+      "author": "NHEN DEVELOPER",
+      "status": "PUBLISHED",
+      "created_at": "2026-04-29T10:12:33.000Z",
+      "tags": [1, 5]
+    },
+    {
+      "id": 9,
+      "title": "Aimhead Antiban 100%",
+      "description": "Bản an toàn nhất, sử dụng lâu dài",
+      "image": "https://i.ibb.co/0jF27v07/2026-04-16-21-37-20-Lumina.gif",
+      "download_url": "https://link4m.com/dwEJARYx",
+      "type": "UPDATED",
+      "category_id": 2,
+      "stock": 999,
+      "is_unlimited": true,
+      "author": "NHEN DEVELOPER",
+      "status": "PUBLISHED",
+      "created_at": "2026-04-29T10:12:33.000Z",
+      "tags": [1, 5]
+    }
+    
+    
+  ],    
+
+  "file_tags": [
+    { "file_id": "1", "tag_id": 1 },
+    { "file_id": "1", "tag_id": 7 },
+    { "file_id": "1", "tag_id": 8 }
+  ]
+}

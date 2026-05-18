@@ -1,53 +1,35 @@
+const DB_URL = 'database/db.json';
 
-async function updateVisitorCount() {
-    const countEl = document.getElementById('visitorCount');
-    try {
-        const response = await fetch('https://api.countapi.xyz/get/nhendeveloper/unique_visits');
-        const data = await response.json();
-        countEl.textContent = `Số người truy cập: ${data.value.toLocaleString('vi-VN')}+`;
-    } catch (e) {
-        countEl.textContent = `Số người truy cập: 1,245+`;
-    }
-}
-
-window.addEventListener('load', () => {
-    updateVisitorCount();
-});
-const API_URL = "https://api.dak.edu.vn/game_store/index.php?action=get_files";
+let allFiles = [];
 let currentCategory = '';
 let currentPage = 1;
+const ITEMS_PER_PAGE = 6;   // Bạn có thể thay đổi số lượng hiển thị mỗi trang
 
-// Khởi tạo khi trang tải xong
+// Khởi tạo khi trang tải
 window.addEventListener('DOMContentLoaded', () => {
-    loadData();
+    loadDatabase();
 });
 
-async function loadData(page = 1, categoryId = '') {
-    currentPage = page;
-    currentCategory = categoryId;
-
-    const containerFile = document.getElementById('container-file');
-    // Hiệu ứng loading đơn giản
-    containerFile.style.opacity = '0.5';
-
+async function loadDatabase() {
     try {
-        const response = await fetch(`${API_URL}&page=${page}&category_id=${categoryId}`);
+        const response = await fetch(DB_URL);
         const data = await response.json();
-
-        renderCategories(data.categories);
-        renderFiles(data.files);
-        renderPagination(data.pagination);
-
-        containerFile.style.opacity = '1';
+        
+        allFiles = data.files || [];
+        
+        renderCategories(data.categories || []);
+        renderFiles(allFiles);
+        renderPagination();
+        
     } catch (error) {
-        console.error("Lỗi fetch API:", error);
-        containerFile.innerHTML = '<p class="text-danger">Không thể tải dữ liệu!</p>';
+        console.error("Lỗi tải database:", error);
+        document.getElementById('container-file').innerHTML = 
+            '<p class="text-danger text-center">Không thể tải dữ liệu!</p>';
     }
 }
 
-// 1. Render Categories (Bootstrap 5 buttons) ngay trên đầu container-file
+// Render Categories
 function renderCategories(categories) {
-    // Tìm hoặc tạo nơi chứa category (ngay trước container-file)
     let catBox = document.getElementById('category-box');
     if (!catBox) {
         catBox = document.createElement('div');
@@ -56,100 +38,116 @@ function renderCategories(categories) {
         document.getElementById('container-file').before(catBox);
     }
 
-    let html = `<button class="category-btn ${currentCategory === '' ? 'active' : ''}" onclick="loadData(1, '')">Tất cả</button>`;
+    let html = `<button class="category-btn ${currentCategory === '' ? 'active' : ''}" onclick="filterByCategory('')">Tất cả</button>`;
 
     categories.forEach(cat => {
-        const activeClass = currentCategory == cat.id ? 'active' : '';
-        html += `<button class="category-btn ${activeClass}" onclick="loadData(1, '${cat.id}')">${cat.name}</button>`;
+        const active = currentCategory == cat.id ? 'active' : '';
+        html += `<button class="category-btn ${active}" onclick="filterByCategory(${cat.id})">${cat.name}</button>`;
     });
+
     catBox.innerHTML = html;
 }
 
-// 2. Render danh sách file vào #container-file
-function renderFiles(files) {
-    const containerFile = document.getElementById('container-file');
+// Lọc theo Category
+function filterByCategory(categoryId) {
+    currentCategory = categoryId;
+    currentPage = 1;
+    renderFiles(allFiles);
+    renderPagination();
+}
 
-    if (!files || files.length === 0) {
-        containerFile.innerHTML = '<div class="text-center w-100 text-white">Không có sản phẩm nào.</div>';
+// Render Files
+function renderFiles(files) {
+    const container = document.getElementById('container-file');
+    container.style.opacity = '0.5';
+
+    // Lọc theo category
+    let filtered = files;
+    if (currentCategory !== '') {
+        filtered = files.filter(file => file.category_id == currentCategory);
+    }
+
+    // Phân trang
+    const totalItems = filtered.length;
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const paginatedFiles = filtered.slice(start, start + ITEMS_PER_PAGE);
+
+    if (paginatedFiles.length === 0) {
+        container.innerHTML = '<div class="text-center w-100 text-white">Không có sản phẩm nào.</div>';
+        container.style.opacity = '1';
         return;
     }
 
-    containerFile.innerHTML = files.map(file => {
-        // Xử lý Class nhãn dựa trên Type từ API (vip, premium, limited, updated)
-        const typeLower = file.type.toLowerCase();
-        const labelClass = `${typeLower}-label`;
-
+    container.innerHTML = paginatedFiles.map(file => {
+        const typeLower = (file.type || '').toLowerCase();
         return `
         <div class="product-card">
             <div class="card-image-container">
                 <img src="${file.image}" class="card-gif" onerror="this.src='https://via.placeholder.com/300x160'">
-                <div class="${labelClass}">${file.type.toUpperCase()}</div>
+                <div class="${typeLower}-label">${(file.type || 'HACK').toUpperCase()}</div>
             </div>
             <div class="card-title">🔥 ${file.title}</div>
             <div class="card-desc">${file.description}</div>
             <p class="card-author">Phát triển bởi ${file.author}</p>
             <div class="card-meta my-4 mx-auto">
-                <span class="card-type ${typeLower}">${file.category_name || 'HACK'}</span>
-                <span class="card-stock">Có Sẵn: ${file.is_unlimited == 1 ? '999+' : file.stock}</span>
+                <span class="card-type ${typeLower}">${file.type || 'HACK'}</span>
+                <span class="card-stock">Có Sẵn: ${file.is_unlimited ? '∞' : file.stock}</span>
             </div>
             <a href="${file.download_url}" target="_blank" class="download-btn">📥 Tải Ngay</a>
         </div>`;
     }).join('');
+
+    container.style.opacity = '1';
 }
 
-function renderPagination(paging) {
+// Render Pagination (Client-side)
+function renderPagination() {
     let pgBox = document.getElementById('pagination-box');
     if (!pgBox) {
         pgBox = document.createElement('nav');
         pgBox.id = 'pagination-box';
-        pgBox.className = 'pagination-box mt-4'; // Thêm margin top cho đẹp
+        pgBox.className = 'pagination-box mt-4';
         document.getElementById('container-file').after(pgBox);
     }
 
-    // Kiểm tra nếu tổng số trang <= 1 thì ẩn phân trang
-    if (!paging || paging.pages <= 1) {
+    let filtered = allFiles;
+    if (currentCategory !== '') {
+        filtered = allFiles.filter(f => f.category_id == currentCategory);
+    }
+
+    const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+    if (totalPages <= 1) {
         pgBox.innerHTML = '';
         return;
     }
 
-    // LẤY ĐÚNG TÊN TỪ JSON: paging.page và paging.pages
-    let current = parseInt(paging.page); 
-    let total = parseInt(paging.pages);
+    let html = `<ul class="pagination justify-content-center">`;
 
-    let items = '';
-    let start = Math.max(1, current - 2);
-    let end = Math.min(total, current + 2);
+    // Previous
+    html += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                <button class="page-link" onclick="changePage(${currentPage - 1})">‹</button>
+             </li>`;
 
-    // Nút lùi trang (Previous)
-    let prevDisabled = current === 1 ? 'disabled' : '';
-    let prevOnClick = current === 1 ? '' : `onclick="loadData(${current - 1}, '${currentCategory}')"`;
-
-    // Render các số trang
-    for (let i = start; i <= end; i++) {
-        items += `
-        <li class="page-item ${current === i ? 'active' : ''}">
-            <button class="page-link" onclick="loadData(${i}, '${currentCategory}')">${i}</button>
-        </li>`;
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+        html += `<li class="page-item ${currentPage === i ? 'active' : ''}">
+                    <button class="page-link" onclick="changePage(${i})">${i}</button>
+                 </li>`;
     }
 
-    // Nút tiến trang (Next)
-    let nextDisabled = current === total ? 'disabled' : '';
-    let nextOnClick = current === total ? '' : `onclick="loadData(${current + 1}, '${currentCategory}')"`;
+    // Next
+    html += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                <button class="page-link" onclick="changePage(${currentPage + 1})">›</button>
+             </li>`;
 
-    pgBox.innerHTML = `
-    <ul class="pagination justify-content-center">
-        <li class="page-item ${prevDisabled}">
-            <button class="page-link" ${prevOnClick}>‹</button>
-        </li>
+    html += `</ul>`;
+    pgBox.innerHTML = html;
+}
 
-        ${start > 1 ? '<li class="page-item"><span class="page-dot">...</span></li>' : ''}
-        
-        ${items}
-
-        ${end < total ? '<li class="page-item"><span class="page-dot">...</span></li>' : ''}
-
-        <li class="page-item ${nextDisabled}">
-            <button class="page-link" ${nextOnClick}>›</button>
-        </li>
-    </ul>`;
+function changePage(page) {
+    if (page < 1 || page > Math.ceil(allFiles.length / ITEMS_PER_PAGE)) return;
+    currentPage = page;
+    renderFiles(allFiles);
+    renderPagination();
 }

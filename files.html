@@ -14,25 +14,25 @@
   <link rel="stylesheet" href="./assets/css/files.css">
   <link rel="stylesheet" href="global.css">
 </head>
-  
+
 <body>
   <canvas id="c"></canvas>
   <div class="ava-wrap">
-      <div class="ava-outer">
-        <div class="ava-blur"></div>
-        <div class="ava-ring"></div>
-        <img class="ava-img"
-          src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
-          alt="NHEN DEVELOPER">
-        <div class="hex-badge">DEV</div>
-      </div>
-      <h1 class="name">NHEN DEVELOPER</h1>
-      <p class="sub">Developer • Free Fire Tools • Mod & Portfolio</p>
-      <div class="visitor">
-        <i class="fas fa-circle"></i>
-        <span id="visitorCount">Đang tải lượt truy cập...</span>
-      </div>
+    <div class="ava-outer">
+      <div class="ava-blur"></div>
+      <div class="ava-ring"></div>
+      <img class="ava-img"
+        src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+        alt="NHEN DEVELOPER">
+      <div class="hex-badge">DEV</div>
     </div>
+    <h1 class="name">NHEN DEVELOPER</h1>
+    <p class="sub">Developer • Free Fire Tools • Mod & Portfolio</p>
+    <div class="visitor">
+      <i class="fas fa-circle"></i>
+      <span id="visitorCount">Đang tải lượt truy cập...</span>
+    </div>
+  </div>
   <!-- Nút Quay Lại -->
   <div class="back-button-container">
     <a href="index.html">
@@ -43,17 +43,47 @@
   </div>
 
   <!-- Phần Hướng dẫn cài đặt (đưa lên trên) -->
-  <div class="install-guide">
-    <h4 style="color: #00ff9d; margin-bottom: 15px;">📋 CÁCH CÀI ĐẶT (Free Fire Thường & Max)</h4>
-    <p>
-      Tải file về máy → Bấm vào file vừa tải về → Chọn <strong>Giải nén bằng ZArchiver</strong> →
-      Copy thư mục vừa giải nén (chọn bản Free Fire thường, Max hoặc cả hai nếu bạn chơi cả hai) →
-      Dán vào đường dẫn <strong>Android/data/</strong> → Khi hiện hộp thoại thì nhấn <strong>Thay thế</strong> →
-      Khởi động lại điện thoại → Mở game Free Fire và chơi!
-    </p>
-    <p style="color: #ffdd77; font-weight: bold; margin-top: 15px;">
-      ⚠️ Lưu ý: Dùng ZArchiver để giải nén. Nhớ khởi động lại máy sau khi dán file.<br>
-      Nếu không dùng được ZArchiver, hãy cài thêm <strong>Shizuku</strong> hoặc liên hệ mình để được hỗ trợ.
+  <!-- Phần Hướng dẫn cài đặt - 3 Nút -->
+  <div class="install-guide mt-4 mb-5">
+    <h4 style="color: #00ff9d; margin-bottom: 25px; text-align: center;">
+      📋 CÁCH CÀI ĐẶT TẤT CẢ FILES
+    </h4>
+
+    <div class="row g-3 justify-content-center">
+
+      <!-- Nút 1: Hướng dẫn iPhone -->
+      <div class="col-12 col-md-4">
+        <a href="https://www.youtube.com/shorts/WpYpfDKZ9EI" target="_blank" class="btn btn-lg w-100 text-white shadow"
+          style="background: linear-gradient(135deg, #b91c1c, #f87171); padding: 18px 20px; font-size: 1.1rem; border-radius: 15px;">
+          <i class="fab fa-apple me-2"></i>
+          Hướng dẫn cho iPhone / iOS
+        </a>
+      </div>
+
+      <!-- Nút 2: Hướng dẫn Android -->
+      <div class="col-12 col-md-4">
+        <a href="#" target="_blank" class="btn btn-lg w-100 text-white shadow"
+          style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); padding: 18px 20px; font-size: 1.1rem; border-radius: 15px;">
+          <i class="fab fa-android me-2"></i>
+          Hướng dẫn cho Android
+        </a>
+        
+      </div>
+
+      <!-- Nút 3: Hướng dẫn tải file -->
+      <div class="col-12 col-md-4">
+        <a href="#" target="_blank" class="btn btn-lg w-100 text-white shadow"
+          style="background: linear-gradient(135deg, #166534, #4ade80); padding: 18px 20px; font-size: 1.1rem; border-radius: 15px;">
+          <i class="fas fa-download me-2"></i>
+          Xem Video Hướng dẫn tải file
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Phần lưu ý nhỏ bên dưới (giữ lại nội dung cũ của bạn) -->
+    <p class="text-center mt-4 mb-0" style="color: #ffdd77; font-size: 0.95rem;">
+      ⚠️ Nên dùng <strong>MT Manager</strong> trên Android • Cần <strong>Filza + ESign</strong> trên iPhone
     </p>
   </div>
   <h2 class="title-trick">TẤT CẢ FILES FREE FIRE</h2>
@@ -61,14 +91,14 @@
   </div>
 
   <div class="foot">
-      <p>Được lập trình bởi <span class="by">NHEN DEVELOPER</span></p>
-      <p style="margin-top:5px">&copy; 2026 • @NO COPYRIGHT</p>
-    </div>
+    <p>Được lập trình bởi <span class="by">NHEN DEVELOPER</span></p>
+    <p style="margin-top:5px">&copy; 2026 • @NO COPYRIGHT</p>
+  </div>
 
   <script src="./assets/js/RestApi.js"></script>
   <script src="./assets/js/Visit.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="background.js"></script>
+  <script src="background.js"></script>
 </body>
 
 </html>

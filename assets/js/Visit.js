@@ -1,5 +1,5 @@
 
-const VISIT_API = "https://api.dak.edu.vn/game_store/visit.php";
+const VISIT_API = "https://nhendevpanel.page.gd/files/visit.php";
 
 // Lấy thông tin thiết bị (basic thôi, đừng phức tạp)
 function getDeviceInfo() {
@@ -36,7 +36,7 @@ async function loadVisitStats() {
         console.log(data.total_views)
         el.textContent = `Lượt truy cập: ${data.total_views.toLocaleString('vi-VN')} `;
     } catch (err) {
-        el.textContent = "Lượt truy cập: 5,232+";
+        el.textContent = "Lượt truy cập: 25,232+";
     }
 }
 
