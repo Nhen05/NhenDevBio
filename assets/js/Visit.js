@@ -1,5 +1,5 @@
 
-const VISIT_API = "https://nhendevpanel.page.gd/files/visit.php";
+const VISIT_API = "https://api.daksystem.net/api/baitap/game_store/visit.php";
 
 // Lấy thông tin thiết bị (basic thôi, đừng phức tạp)
 function getDeviceInfo() {
