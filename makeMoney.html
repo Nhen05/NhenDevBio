@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRICK FREE FIRE - NHEN DEVELOPER</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg"
+        href="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap');
+
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+
+        .neon-green {
+            color: #00ff9d;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+
+        .gaming-card {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .gaming-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.15);
+        }
+
+        /* NÚT QUAY LẠI */
+        .back-button-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 15px 8px;
+        }
+
+        .btn-back {
+            background: rgba(0, 255, 157, 0.12);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+            padding: 11px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.08rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.25);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-back:hover {
+            background: var(--primary-green);
+            color: #000;
+            transform: translateX(-8px);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
+        }
+
+        .cta-primary {
+            background: linear-gradient(to right, #00ff9d, #39ff14);
+            color: #000;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.6);
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0f172a] text-white">
+    <canvas id="c"></canvas>
+
+    <!-- Header (giữ nguyên) -->
+    <div class="ava-wrap">
+        <div class="ava-outer">
+            <div class="ava-blur"></div>
+            <div class="ava-ring"></div>
+            <img class="ava-img"
+                src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+                alt="NHEN DEVELOPER">
+            <div class="hex-badge">DEV</div>
+        </div>
+        <h1 class="name">NHEN DEVELOPER</h1>
+        <p class="sub">Developer • Free Fire Tools • Mod & Portfolio</p>
+        <div class="visitor">
+            <i class="fas fa-circle"></i>
+            <span id="visitorCount">Đang tải lượt truy cập...</span>
+        </div>
+    </div>
+
+    <!-- Nút Quay Lại -->
+    <div class="back-button-container">
+        <a href="index.html">
+            <button onclick="history.back()" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Quay lại trang trước
+            </button>
+        </a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="max-w-[480px] mx-auto px-4 pb-24">
+
+        <!-- HERO TITLE -->
+        <div class="text-center mb-8 pt-4">
+            <div class="inline-flex items-center gap-2 bg-zinc-800 px-4 py-1 rounded-full mb-4">
+                <div class="w-2 h-2 bg-[#00ff9d] rounded-full animate-pulse"></div>
+                <span class="text-sm font-semibold text-[#00ff9d]">CẬP NHẬT 2026</span>
+            </div>
+
+            <h1 class="text-4xl font-black leading-none tracking-tighter mb-3">
+                KIẾM <span class="neon-green">1-2 TRIỆU</span><br>
+                MỖI NGÀY ONLINE
+            </h1>
+            <p class="text-zinc-400 text-lg">Không cần vốn • Chỉ cần 15 phút/ngày</p>
+        </div>
+
+        <!-- SECTION 1: CÁCH KIẾM TIỀN -->
+        <div class="gaming-card bg-[#111827] rounded-3xl p-6 mb-6 shadow-xl border border-zinc-700">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-[#00ff9d] rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-link text-black text-xl"></i>
+                </div>
+                <h2 class="section-title">💰 Kiếm Tiền Cực Dễ</h2>
+            </div>
+
+            <p class="text-zinc-300 mb-4">Chỉ cần <strong>rút gọn link → chia sẻ</strong> là có người click và bạn nhận
+                tiền ngay.</p>
+
+            <div class="bg-zinc-800 rounded-2xl p-4 text-sm">
+                <div class="flex items-center gap-2 text-[#00ff9d]">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="font-medium">Rút gọn link Free Fire, mod, hack...</span>
+                </div>
+                <div class="flex items-center gap-2 mt-2 text-[#00ff9d]">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="font-medium">Đăng lên Facebook, TikTok, Zalo, Group</span>
+                </div>
+                <div class="flex items-center gap-2 mt-2 text-[#00ff9d]">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="font-medium">Có người bấm = Có tiền</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: THU NHẬP -->
+        <div class="gaming-card bg-[#111827] rounded-3xl p-6 mb-6 shadow-xl border border-zinc-700">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-wallet text-white text-xl"></i>
+                </div>
+                <h2 class="section-title">💸 Kiếm Được Bao Nhiêu?</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Link4m -->
+                <div class="bg-zinc-800 rounded-2xl p-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="font-bold">Link4m</span>
+                            <span class="text-xs bg-emerald-900 text-emerald-400 px-2 py-0.5 rounded ml-2">TỐT
+                                NHẤT</span>
+                        </div>
+                        <span class="font-black text-[#00ff9d] text-xl">1.250.000đ</span>
+                    </div>
+                    <div class="text-sm text-zinc-400 mt-1">1000 lượt vượt link</div>
+                    <div class="text-xs text-emerald-400 mt-1">500 lượt/ngày ≈ <span class="font-bold">600.000đ</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-zinc-800 rounded-2xl p-4">
+                        <div class="text-sm text-zinc-400">Link4sub</div>
+                        <div class="font-black text-[#00ff9d] text-xl">250.000đ</div>
+                        <div class="text-xs text-zinc-400">1000 lượt đăng ký</div>
+                    </div>
+                    <div class="bg-zinc-800 rounded-2xl p-4">
+                        <div class="text-sm text-zinc-400">Zufile</div>
+                        <div class="font-black text-[#00ff9d] text-xl">375.000đ</div>
+                        <div class="text-xs text-zinc-400">1000 lượt tải</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center bg-emerald-900/30 text-emerald-400 py-2 rounded-2xl text-sm font-medium">
+                👉 Kết hợp cả 3 dễ lên <span class="font-bold text-white">1 TRIỆU/ngày</span>
+            </div>
+        </div>
+
+        <!-- SECTION 3: CÁCH LÀM -->
+        <div class="gaming-card bg-[#111827] rounded-3xl p-6 mb-6 shadow-xl border border-zinc-700">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-sky-500 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-rocket text-white text-xl"></i>
+                </div>
+                <h2 class="section-title">🚀 Cách Làm Siêu Ngắn</h2>
+            </div>
+
+            <div class="space-y-3 text-sm">
+                <div class="flex gap-4">
+                    <div
+                        class="w-7 h-7 flex-shrink-0 bg-zinc-700 rounded-full flex items-center justify-center text-xs font-bold">
+                        1</div>
+                    <div>Đăng ký tài khoản link bên dưới(miễn phí)</div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-7 h-7 flex-shrink-0 bg-zinc-700 rounded-full flex items-center justify-center text-xs font-bold">
+                        2</div>
+                    <div>Dán link → Rút gọn</div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-7 h-7 flex-shrink-0 bg-zinc-700 rounded-full flex items-center justify-center text-xs font-bold">
+                        3</div>
+                    <div>Gửi bạn bè / Đăng Facebook, TikTok, Group</div>
+                </div>
+                <div class="flex gap-4 pt-2 border-t border-zinc-700">
+                    <div
+                        class="w-7 h-7 flex-shrink-0 bg-[#00ff9d] rounded-full flex items-center justify-center text-xs font-bold text-black">
+                        4</div>
+                    <div class="font-bold text-[#00ff9d]">Có người bấm = Có tiền ngay!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: RÚT TIỀN -->
+        <div class="gaming-card bg-[#111827] rounded-3xl p-6 mb-6 shadow-xl border border-zinc-700">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-orange-500 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-money-bill-wave text-white text-xl"></i>
+                </div>
+                <h2 class="section-title">💳 Rút Tiền Dễ Dàng</h2>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-3 bg-zinc-800 px-4 py-3 rounded-2xl">
+                    <i class="fas fa-gamepad text-orange-400 w-5"></i>
+                    <span>Rút về <strong>thẻ game Garena</strong></span>
+                </div>
+                <div class="flex items-center gap-3 bg-zinc-800 px-4 py-3 rounded-2xl">
+                    <i class="fas fa-university text-orange-400 w-5"></i>
+                    <span>Rút về <strong>ngân hàng</strong> (Vietcombank, MBBank...)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CẢNH BÁO -->
+        <div
+            class="bg-red-900/30 border border-red-600 text-red-400 px-4 py-3 rounded-2xl text-sm mb-6 flex items-start gap-2">
+            <i class="fas fa-exclamation-triangle mt-0.5"></i>
+            <span><strong>BẮT BUỘC</strong> đăng ký bằng link dưới để có tiền</span>
+        </div>
+
+        <!-- 3 NÚT ĐĂNG KÝ -->
+        <div class="space-y-3 mb-8">
+            <!-- Link4m - NÚT CHÍNH -->
+            <a href="https://link4m.com/ref/5TwoD2oH" target="_blank"
+                class="cta-primary flex items-center justify-center gap-3 py-4 rounded-3xl text-lg font-extrabold shadow-xl">
+                <i class="fas fa-rocket"></i>
+                <span>ĐĂNG KÝ LINK4M (KIẾM TIỀN CHÍNH)</span>
+            </a>
+
+            <div class="grid grid-cols-2 gap-3">
+                <a href="https://link4sub.com/ref/9845" target="_blank"
+                    class="flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 transition-all py-3.5 rounded-3xl font-bold text-sm">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Đăng ký Link4sub</span>
+                </a>
+
+                <a href="https://zufile.com/ref/18544" target="_blank"
+                    class="flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-500 transition-all py-3.5 rounded-3xl font-bold text-sm">
+                    <i class="fas fa-download"></i>
+                    <span>Đăng ký Zufile</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA CUỐI -->
+        <div class="text-center">
+            <a href="https://link4m.com/ref/5TwoD2oH" target="_blank"
+                class="inline-flex items-center justify-center gap-3 bg-[#00ff9d] hover:bg-white text-black font-extrabold px-10 py-4 rounded-[50px] text-lg transition-all active:scale-95">
+                <span>🔥 BẮT ĐẦU KIẾM TIỀN NGAY</span>
+            </a>
+            <p class="text-xs text-zinc-500 mt-3">Miễn phí • Rút tiền trong 24h</p>
+        </div>
+    </div>
+
+    <!-- STICKY CTA (MOBILE) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-[#111827] border-t border-zinc-700 p-3 md:hidden z-50">
+        <a href="https://link4m.com/ref/5TwoD2oH" target="_blank"
+            class="block w-full text-center bg-gradient-to-r from-[#00ff9d] to-[#39ff14] text-black font-extrabold py-3.5 rounded-2xl text-sm active:scale-[0.985]">
+            🚀 ĐĂNG KÝ NGAY - KIẾM TIỀN NGAY
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="foot">
+        <p>Được lập trình bởi <span class="by">NHEN DEVELOPER</span></p>
+        <p style="margin-top:5px">&copy; 2026 • @NO COPYRIGHT</p>
+    </div>
+
+    <script src="./assets/js/Visit.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="background.js"></script>
+</body>
+
+</html>
