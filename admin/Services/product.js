@@ -47,14 +47,30 @@ async function callAPI(action, method = 'GET', data = null) {
 
     try {
         const res = await fetch(url, options);
-        return await res.json();
+
+        console.log(`[API] ${action} - Status: ${res.status}`);
+
+        const text = await res.text();
+        console.log('RAW RESPONSE:', text);
+
+        let result;
+        try {
+            result = JSON.parse(text);
+        } catch (e) {
+            result = { raw: text, error: true, message: 'Invalid JSON response' };
+        }
+
+        if (res.status !== 200) {
+            result.error = true;
+        }
+
+        return result;
+
     } catch (error) {
         console.error('API Error:', error);
-        showToast('Lỗi kết nối API', 'error');
-        throw error;
+        return { error: true, message: 'Network error' };
     }
 }
-
 // ==================== LOAD PRODUCTS ====================
 async function loadProducts() {
     const grid = document.getElementById('products-grid');
@@ -209,20 +225,18 @@ async function deleteProduct(id) {
 async function handleFormSubmit(e) {
     e.preventDefault();
 
-    const name = document.getElementById('gaming_name').value.trim();
-    const link = document.getElementById('gaming_link').value.trim();
-    const image = document.getElementById('gaming_image').value.trim();
-
-    if (!name || !link || !image) {
-        showToast('Vui lòng nhập đầy đủ thông tin!', 'error');
-        return;
-    }
+    const form = e.target;
 
     const data = {
-        product_name: name,
-        affiliate_link: link,
-        thumbnail_url: image
+        id: form.id?.value || editingId,
+        product_name: form.gaming_name.value.trim(),
+        affiliate_link: form.gaming_link.value.trim(),
+        thumbnail_url: form.gaming_image.value.trim(),
+        category: "gaming",
+        is_active: 1
     };
+
+    console.log("DATA SEND:", data);
 
     const submitBtn = document.getElementById('submit-btn');
     const originalText = submitBtn.innerHTML;
@@ -231,19 +245,20 @@ async function handleFormSubmit(e) {
 
     try {
         let action = isEditing ? 'update_product' : 'create_product';
-        if (isEditing) data.id = editingId;
-
         const result = await callAPI(action, 'POST', data);
 
-        if (result.success || result.status === 'success') {
-            showToast(isEditing ? 'Cập nhật thành công!' : 'Thêm sản phẩm thành công!');
+        console.log("RESPONSE:", result);
+
+        if (result.success) {
+            showToast(isEditing ? "Cập nhật thành công!" : "Thêm sản phẩm thành công!", "success");
             closeModal();
             loadProducts();
         } else {
-            throw new Error(result.message || 'Có lỗi xảy ra');
+            showToast(result.message || "Thao tác thất bại", "error");
         }
+
     } catch (err) {
-        showToast('Thao tác thất bại: ' + err.message, 'error');
+        showToast("Lỗi: " + err.message, "error");
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
