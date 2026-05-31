@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOP DPI FILE - NHEN DEVELOPER</title>
+  <link rel="icon" type="image/jpeg"
+    href="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/tricks.css">
+  <link rel="stylesheet" href="global.css">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
+  <canvas id="c"></canvas>
+
+  <!-- Header -->
+   <div class="ava-wrap">
+      <div class="ava-outer">
+        <div class="ava-blur"></div>
+        <div class="ava-ring"></div>
+        <img class="ava-img"
+          src="https://yt3.ggpht.com/m06x7RoejzojZ3c31uhT1U5FLhke99Ra8Inqw-l--WmM0L8zsws6WfDL1yyFTQx1NJD11-2r=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+          alt="NHEN DEVELOPER">
+        <div class="hex-badge">DEV</div>
+      </div>
+      <h1 class="name">NHEN DEVELOPER</h1>
+      <p class="sub">Developer • Free Fire Tools • Mod & Portfolio</p>
+      <div class="visitor">
+        <i class="fas fa-circle"></i>
+        <span id="visitorCount">Đang tải lượt truy cập...</span>
+      </div>
+    </div>
+  <!-- Nút Quay Lại -->
+  <div class="back-button-container px-4 pt-2">
+    <a href="index.html">
+      <button onclick="history.back()" class="btn-back flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-emerald-500/50 text-white px-5 py-3 rounded-2xl text-sm w-full">
+        <i class="fas fa-arrow-left"></i> Quay lại trang trước
+      </button>
+    </a>
+  </div>
+  <!-- THÔNG BÁO MINH BẠCH -->
+  <div class="max-w-[480px] mx-auto px-4 mt-3 mb-6">
+    <div class="bg-zinc-900 border border-emerald-500/30 rounded-3xl p-4 text-[12px]">
+      <div class="flex gap-3">
+        <i class="fas fa-circle-exclamation text-emerald-400 mt-1 text-lg"></i>
+        <div class="flex-1 text-zinc-300 leading-relaxed">
+          <p class="font-medium text-emerald-400 mb-2">Thông tin quan trọng:</p>
+          <ul class="space-y-1.5 text-xs">
+            <li>• Các file và DPI chỉ hỗ trợ kéo tâm, <span class="text-emerald-400">KHÔNG hack</span></li>
+            <li>• Không scam - Minh bạch 100%</li>
+            <li>• Hỗ trợ khi gặp sự cố</li>
+            <li>• Hướng dẫn cài đặt tận tâm (Android & iOS)</li>
+            <li>• Sau chuyển khoản gửi ảnh chuyển tiền vào Zalo nhận video</li>
+            <li>• Hoạt động tác dụng 100% không bịp hay lừa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="max-width: 480px; margin: 0 auto; padding: 0 15px 80px;">
+    <!-- ==================== PRODUCT SECTION ==================== -->
+    <div class="mb-6">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="h-px w-12 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        <span class="text-emerald-400 text-sm font-bold tracking-widest">SHOP DPI VÀ FILE</span>
+        <div class="h-px w-12 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+      </div>
+      <div id="productsGrid" class="grid grid-cols-2 gap-4">
+        <!-- Cards sẽ được render động bởi JS -->
+      </div>
+    </div>
+  </div>
+  <!-- ==================== STEP 1: CONFIRM MODAL ==================== -->
+  <div id="confirmModal" class="popup" style="display: none;">
+    <div class="popup-content max-w-[340px]">
+      <div class="text-center">
+        <h3 class="text-xl font-bold mb-1">XÁC NHẬN ĐƠN HÀNG</h3>
+        <p class="text-emerald-400 font-bold text-lg" id="confirmProduct"></p>
+        <p class="text-4xl font-bold text-white mt-2 mb-6" id="confirmPrice"></p>
+      </div>
+     
+      <button onclick="proceedToPayment()"
+              class="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-bold py-4 rounded-3xl text-base mb-3 transition-all active:scale-95">
+        TIẾP TỤC THANH TOÁN
+      </button>
+     
+      <button onclick="closeConfirmModal()"
+              class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-medium py-4 rounded-3xl text-base transition-all">
+        HỦY
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== STEP 2: PAYMENT POPUP ==================== -->
+  <div id="paymentPopup" class="popup" style="display: none;">
+    <div class="popup-content max-w-[360px]">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold">THANH TOÁN</h3>
+        <button onclick="closePaymentPopup()" class="text-zinc-400 hover:text-white text-2xl leading-none">×</button>
+      </div>
+      <div class="bg-zinc-900 rounded-3xl p-5 mb-5">
+        <p class="text-emerald-400 font-bold text-center" id="paymentProduct"></p>
+        <p class="text-4xl font-bold text-center text-white mt-2" id="paymentPrice"></p>
+      </div>
+      <div class="flex justify-center mb-4">
+        <img id="qrImage" src="https://i.ibb.co/0R8RVXdz/anh-chuy-n-kho-n.jpg"
+             alt="QR Thanh Toán"
+             class="w-52 h-52 object-contain rounded-2xl border-2 border-emerald-500/30">
+      </div>
+      <button onclick="downloadQR()"
+              class="w-full bg-zinc-800 hover:bg-zinc-700 text-white py-3 rounded-2xl flex items-center justify-center gap-2 mb-4">
+        <i class="fas fa-download"></i> LƯU QR CODE
+      </button>
+      <div class="mb-5">
+        <p class="text-xs text-zinc-400 mb-2">NỘI DUNG CHUYỂN KHOẢN</p>
+        <div onclick="copyToClipboard()" id="copyText"
+             class="bg-black border border-emerald-500/30 p-4 rounded-2xl text-sm cursor-pointer hover:border-emerald-500 transition-colors">
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <a href="https://zalo.me/84916916210" target="_blank"
+           class="bg-emerald-500 hover:bg-emerald-600 text-black font-bold py-4 rounded-3xl flex items-center justify-center gap-2 transition-all active:scale-95">
+          <i class="fab fa-whatsapp"></i> MỞ ZALO
+        </a>
+        <button onclick="closePaymentPopup()"
+                class="bg-zinc-800 hover:bg-zinc-700 text-white font-medium py-4 rounded-3xl transition-all">
+          ĐÓNG
+        </button>
+      </div>
+      <div class="text-[10px] text-zinc-500 text-center mt-6">
+        Chuyển khoản → Chụp bill → Gửi Zalo để nhận file
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p>Được lập trình bởi <span class="by">NHEN DEVELOPER</span></p>
+    <p style="margin-top:5px">&copy; 2026 • @NO COPYRIGHT</p>
+  </div>
+
+  <script src="database/shops/db.js"></script>
+  <script>
+    // Render cards động
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+      productsData.forEach(product => {
+        const cardHTML = `
+          <div class="bg-zinc-900 border border-${product.badgeColor}-500/40 rounded-3xl overflow-hidden shadow-xl">
+            <div class="relative">
+              <img src="${product.image}" alt="${product.name}" class="w-full h-36 object-cover">
+              <div class="absolute top-3 right-3 bg-${product.badgeColor}-500 text-black text-[10px] font-bold px-3 py-1 rounded-xl">${product.badge}</div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-base font-bold mb-3 text-white">${product.name}</h3>
+             
+              <ul class="text-[11px] text-zinc-300 space-y-1.5 mb-4">
+                ${product.features.map(f => `
+                  <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> ${f}</li>
+                `).join('')}
+              </ul>
+              <div class="flex items-center gap-2 text-xs mb-4">
+                ${product.deviceIcons.map(icon => `
+                  <i class="fa-brands fa-${icon} text-emerald-400"></i>
+                `).join('')}
+                <span class="text-emerald-400">${product.devices}</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-zinc-500 line-through text-sm">${product.originalPrice}</span>
+                <span class="text-2xl font-bold text-emerald-400">${product.price}</span>
+              </div>
+              <button onclick="showConfirmModal('${product.id}')"
+                      class="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-bold py-3.5 rounded-2xl text-sm transition-colors">
+                MUA NGAY
+              </button>
+            </div>
+          </div>
+        `;
+        grid.innerHTML += cardHTML;
+      });
+    }
+
+    // ==================== LOGIC MUA HÀNG ====================
+    let currentProduct = {};
+    function showConfirmModal(productId) {
+      currentProduct = productsData.find(p => p.id === productId);
+     
+      document.getElementById('confirmProduct').textContent = currentProduct.name;
+      document.getElementById('confirmPrice').textContent = currentProduct.fullPrice;
+     
+      document.getElementById('confirmModal').style.display = 'flex';
+    }
+    function closeConfirmModal() {
+      document.getElementById('confirmModal').style.display = 'none';
+    }
+    function proceedToPayment() {
+      closeConfirmModal();
+     
+      document.getElementById('paymentProduct').textContent = currentProduct.name;
+      document.getElementById('paymentPrice').textContent = currentProduct.fullPrice;
+     
+      const message = `Mua ${currentProduct.name} - ${currentProduct.price}`;
+      document.getElementById('copyText').textContent = message;
+     
+      document.getElementById('paymentPopup').style.display = 'flex';
+    }
+    function closePaymentPopup() {
+      document.getElementById('paymentPopup').style.display = 'none';
+    }
+    function copyToClipboard() {
+      const text = document.getElementById('copyText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ Đã sao chép nội dung chuyển khoản!');
+      }).catch(() => {
+        alert('Vui lòng copy thủ công');
+      });
+    }
+    function downloadQR() {
+      const qrImg = document.getElementById('qrImage');
+      const link = document.createElement('a');
+      link.href = qrImg.src;
+      link.download = 'QR-Thanh-Toan-FreeFire.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Close when clicking outside
+    document.getElementById('confirmModal').addEventListener('click', function(e) {
+      if (e.target === this) closeConfirmModal();
+    });
+   
+    document.getElementById('paymentPopup').addEventListener('click', function(e) {
+      if (e.target === this) closePaymentPopup();
+    });
+
+    // Khởi tạo trang
+    window.onload = function() {
+      renderProducts();
+    };
+  </script>
+
+  <script src="./assets/js/Visit.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="background.js"></script>
+</body>
+</html>
